@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct To_doApp: App {
+    
+    @StateObject var todoVM = TodoViewModel() //creating this object of TodoViewModel - @stateobject to protect state of instance
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TodoListView().environmentObject(todoVM) //passing the state object as an evironment object
         }
     }
 }
